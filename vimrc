@@ -34,7 +34,18 @@ au CursorHold,CursorHoldI * silent! wa
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
+
+" Change leader to space
+let mapleader = " "
+
+" Change the default mapping for ctrlp
+let g:ctrlp_map = '<Leader>p'
+" Togle NerdTree
 map <Leader>n :NERDTreeToggle<CR>
+" Switch bewtween open buffers
+map <Leader>b :CtrlPBuffer<CR>
+" Most recently used files
+map <Leader>m :CtrlPBuffer<CR>
 
 let g:syntastic_phpcs_conf="--standard=/Users/abaizeau/devVolume/freshapp/test/CodeStandards --tab-width=4"
 
