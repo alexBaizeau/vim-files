@@ -3,7 +3,7 @@ set number
 syntax enable
 set hlsearch "Highlight search
 
-set background=light
+set background=dark
 colorscheme solarized
 filetype plugin indent on
 au BufRead,BufNewFile *.twig  set ft=htmljinja
@@ -51,6 +51,9 @@ let g:syntastic_phpcs_conf="--standard=/Users/abaizeau/devVolume/freshapp/test/C
 
 let g:multi_cursor_exit_from_insert_mode=0
 
+" fugitive bindings
+map <Leader>gc :Gcommit<CR>
+map <Leader>gw :Gwrite<CR>
 
 " Easy windows navigating
 map <C-j> <C-W>j
@@ -72,6 +75,9 @@ nnoremap <Leader>l :ls<CR>:b<space>
 
 " Javascript settings
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+"
+" JSON settings
+au FileType json setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " html settings
 au FileType html setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " hbs and mustache files.
