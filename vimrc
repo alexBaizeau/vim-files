@@ -26,6 +26,10 @@ set autoindent
 set nobackup
 set noswapfile
 
+"columns
+
+set colorcolumn=80,120
+
 " Save on blur
 au FocusLost * :wa
 
@@ -75,6 +79,8 @@ nnoremap <Leader>l :ls<CR>:b<space>
 
 " Javascript settings
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+
+au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
 "
 " JSON settings
 au FileType json setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
@@ -83,3 +89,7 @@ au FileType html setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
 au FileType mustache setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+
+" scss files
+au BufRead,BufNewFile *.scss  set ft=sass
+au FileType sass setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
