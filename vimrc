@@ -26,9 +26,18 @@ set autoindent
 set nobackup
 set noswapfile
 
+" Sometime I am lazy`
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 "columns
 
 set colorcolumn=80,120
+
+"Split right seems more natural
+set splitright
 
 " Save on blur
 au FocusLost * :wa
@@ -64,6 +73,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+"Allow per-project settings
+set exrc
+set secure
 
 "tmux mapping
 let g:tmux_navigator_no_mappings = 1
