@@ -26,6 +26,8 @@ set autoindent
 set nobackup
 set noswapfile
 
+set backupdir=~/.vim/backup
+
 " Sometime I am lazy`
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -73,6 +75,7 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+"
 "Allow per-project settings
 set exrc
 set secure
@@ -98,6 +101,8 @@ au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
 au FileType json setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " html settings
 au FileType html setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+" ruby settings
+au FileType ruby setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
 au FileType mustache setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
