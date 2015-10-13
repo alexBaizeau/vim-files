@@ -8,6 +8,9 @@ colorscheme solarized
 filetype plugin indent on
 au BufRead,BufNewFile *.twig  set ft=htmljinja
 
+" Enable copy paste
+set clipboard=unnamed
+
 let g:vdebug_options = {
 			\ 'path_maps': {"/mnt/hgfs/devVolume/": "/Volumes/devVolume/"},
 			\ 'server': '0.0.0.0'
@@ -63,6 +66,8 @@ map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPBuffer<CR>
 
 let g:syntastic_phpcs_conf="--standard=/Users/abaizeau/devVolume/freshapp/test/CodeStandards --tab-width=4"
+
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
 
 let g:multi_cursor_exit_from_insert_mode=0
 
