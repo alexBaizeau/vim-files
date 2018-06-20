@@ -58,3 +58,6 @@
 [submodule "bundle/vim-http-client"]
 	path = bundle/vim-http-client
 	url = https://github.com/aquach/vim-http-client.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
