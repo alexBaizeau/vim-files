@@ -58,6 +58,8 @@ let mapleader = " "
 
 " Change the default mapping for ctrlp
 let g:ctrlp_map = '<Leader>p'
+" ctrlp igonore node_modules
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|tmp)|(\.(swp|ico|git|svn))$'
 " Togle NerdTree
 map <Leader>n :NERDTreeToggle<CR>
 " Switch bewtween open buffers
@@ -96,9 +98,15 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "Easy Buffers navigating
 nnoremap <Leader>l :ls<CR>:b<space>
 
+" Easy vimrc editing
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 
 " Javascript settings
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+au FileType typescript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
 "
@@ -108,9 +116,8 @@ au FileType json setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType html setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 " ruby settings
 au FileType ruby setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
-" hbs and mustache files.
-au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
-au FileType mustache setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+
+au FileType html.handlebars setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 " scss files
 au BufRead,BufNewFile *.scss  set ft=sass
