@@ -1,4 +1,41 @@
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Nerdtree
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'tpope/vim-cucumber.git'
+
+Plugin 'mileszs/ack.vim'
+
+Plugin 'joukevandermaas/vim-ember-hbs'
+
+Plugin 'w0rp/ale'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'altercation/vim-colors-solarized'
+
+Plugin 'tpope/vim-sensible'
+
+Plugin 'vim-vdebug/vdebug'
+
+Plugin 'tpope/vim-fugitive'
+
+call vundle#end() 
+
 set number
 syntax enable
 set hlsearch "Highlight search
