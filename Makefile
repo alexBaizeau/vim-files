@@ -3,16 +3,12 @@
 ##
 help:
 	@echo "install - install + compile native things."
-	@echo "update  - Download update for all plugins."
 
-install: symlink submodules 
+install: symlink vundle
 
-submodules:
-	git submodule init
-	git submodule update
-
-update:
-	git submodule foreach git pull origin master 
+vundle:
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+	vim +PluginInstall +qall
 
 symlink:
 	ln -sf ~+/vimrc ~/.vimrc
