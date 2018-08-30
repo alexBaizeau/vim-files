@@ -34,6 +34,8 @@ Plugin 'vim-vdebug/vdebug'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'kien/ctrlp.vim'
+
 call vundle#end() 
 
 set number
