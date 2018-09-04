@@ -36,6 +36,10 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'kien/ctrlp.vim'
 
+Plugin 'evidens/vim-twig'
+
+Plugin 'Valloric/YouCompleteMe'
+
 call vundle#end() 
 
 set number
@@ -142,6 +146,8 @@ nnoremap <Leader>l :ls<CR>:b<space>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+nnoremap <Leader>g :YcmCompleter GoTo<CR>
+
 
 " Javascript settings
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
@@ -161,3 +167,6 @@ au FileType html.handlebars setl  tabstop =2 softtabstop=2 shiftwidth=2 expandta
 " scss files
 au BufRead,BufNewFile *.scss  set ft=sass
 au FileType sass setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
