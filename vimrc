@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Nerdtree
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'tpope/vim-cucumber.git'
+ Plugin 'tpope/vim-cucumber.git'
 
 Plugin 'mileszs/ack.vim'
 
@@ -22,15 +22,15 @@ Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'w0rp/ale'
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'christoomey/vim-tmux-navigator'
+ Plugin 'christoomey/vim-tmux-navigator'
 
-Plugin 'altercation/vim-colors-solarized'
+ Plugin 'altercation/vim-colors-solarized'
 
-Plugin 'tpope/vim-sensible'
+ Plugin 'tpope/vim-sensible'
 
-Plugin 'vim-vdebug/vdebug'
+" Plugin 'vim-vdebug/vdebug'
 
 Plugin 'tpope/vim-fugitive'
 
@@ -38,7 +38,10 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'evidens/vim-twig'
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
+
+Plugin 'leafgarland/typescript-vim'
+
 
 call vundle#end() 
 
@@ -150,7 +153,9 @@ nnoremap <Leader>g :YcmCompleter GoTo<CR>
 
 
 " Javascript settings
+au BufRead,BufNewFile *.ts  set ft=typescript
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+au FileType css setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType typescript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
@@ -164,9 +169,14 @@ au FileType ruby setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 au FileType html.handlebars setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
+" Get the 2-space YAML as the default when hit carriage return after the colon
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " scss files
 au BufRead,BufNewFile *.scss  set ft=sass
 au FileType sass setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
+
+let g:ale_linters = {'typescript': ['tsserver']}
