@@ -49,7 +49,7 @@ set number
 syntax enable
 set hlsearch "Highlight search
 
-set background=dark
+set background=light
 colorscheme solarized
 filetype plugin indent on
 au BufRead,BufNewFile *.twig  set ft=htmljinja
