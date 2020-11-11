@@ -22,7 +22,7 @@ Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'w0rp/ale'
 
 Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline-themes'
 
  Plugin 'christoomey/vim-tmux-navigator'
 
@@ -34,6 +34,8 @@ Plugin 'vim-airline/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'tpope/vim-surround'
+
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'evidens/vim-twig'
@@ -41,6 +43,8 @@ Plugin 'evidens/vim-twig'
 Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'leafgarland/typescript-vim'
+
+Plugin 'mustache/vim-mustache-handlebars'
 
 
 call vundle#end() 
@@ -132,14 +136,6 @@ map <C-l> <C-W>l
 "Allow per-project settings
 set exrc
 set secure
-
-"tmux mapping
-let g:tmux_navigator_no_mappings = 1
-"
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 "Easy Buffers navigating
 nnoremap <Leader>l :ls<CR>:b<space>
