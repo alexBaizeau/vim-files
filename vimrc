@@ -19,7 +19,7 @@ Plugin 'mileszs/ack.vim'
 
 Plugin 'joukevandermaas/vim-ember-hbs'
 
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -45,6 +45,13 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
 
 Plugin 'mustache/vim-mustache-handlebars'
+
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'mxw/vim-jsx'
+
+Plugin 'maxmellon/vim-jsx-pretty'
+
 
 
 call vundle#end() 
@@ -152,6 +159,7 @@ nnoremap <Leader>g :YcmCompleter GoTo<CR>
 au BufRead,BufNewFile *.ts  set ft=typescript
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType css setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+au FileType htmldjango setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType typescript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 
 au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
@@ -176,3 +184,8 @@ let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
 
 let g:ale_linters = {'typescript': ['tsserver']}
+let g:ale_fixers = {
+			\   'javascript': ['prettier'],
+			\   'css': ['prettier'],
+			\}
+
