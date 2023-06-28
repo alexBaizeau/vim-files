@@ -3,6 +3,8 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+" include fzf homebrew binary
+set rtp+=/opt/homebrew/opt/fzf
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -24,11 +26,9 @@ Plugin 'dense-analysis/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
- Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
- Plugin 'altercation/vim-colors-solarized'
-
- Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sensible'
 
 " Plugin 'vim-vdebug/vdebug'
 
@@ -42,16 +42,25 @@ Plugin 'evidens/vim-twig'
 
 Plugin 'ycm-core/YouCompleteMe'
 
-Plugin 'leafgarland/typescript-vim'
 
 Plugin 'mustache/vim-mustache-handlebars'
 
-Plugin 'pangloss/vim-javascript'
-
 Plugin 'mxw/vim-jsx'
 
-Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'puremourning/vimspector'
 
+Plugin 'morhetz/gruvbox'
+
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
+" Plugin 'jparise/vim-graphql'
+"
+Plugin 'github/copilot.vim'
+
+Plugin 'junegunn/fzf.vim'
 
 
 call vundle#end() 
@@ -60,8 +69,7 @@ set number
 syntax enable
 set hlsearch "Highlight search
 
-set background=light
-colorscheme solarized
+set background=dark
 filetype plugin indent on
 au BufRead,BufNewFile *.twig  set ft=htmljinja
 
@@ -154,15 +162,21 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <Leader>g :YcmCompleter GoTo<CR>
 
+" Nerdtree show dot files
+let NERDTreeShowHidden=1
 
 " Javascript settings
 au BufRead,BufNewFile *.ts  set ft=typescript
+au BufRead,BufNewFile *.tsx  set ft=typescriptreact
 au FileType javascript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType css setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType htmldjango setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 au FileType typescript setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+au FileType typescriptreact setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
+
 
 au FileType python setl  tabstop =4 softtabstop=4 shiftwidth=4 expandtab
+
 "
 " JSON settings
 au FileType json setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
@@ -183,9 +197,22 @@ au FileType sass setl  tabstop =2 softtabstop=2 shiftwidth=2 expandtab
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
 
-let g:ale_linters = {'typescript': ['tsserver']}
+let g:ale_fix_on_save = 1
+let g:ale_linters = {'typescript': ['tsserver', 'prettier'], 'typescriptreact': ['eslint', 'tsserver', 'prettier'], 'python': ['flake8', 'pydocstyle']}
+
+" Disable ale comment spam
+let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_fixers = {
 			\   'javascript': ['prettier'],
 			\   'css': ['prettier'],
+			\   'typescript': ['prettier'],
+			\   'typescriptreact': ['prettier'],
+			\   'python': ['black', 'isort', 'autopep8'],
 			\}
 
+
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" Grep workd under cursor
+
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
